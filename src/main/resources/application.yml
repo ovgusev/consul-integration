@@ -1,0 +1,26 @@
+spring:
+  cloud:
+      discovery:
+        instanceId: ${spring.application.name} #:${random.value}
+        healthCheckPath: /health
+        healthCheckInterval: 1s
+
+management:
+  info:
+    git:
+      mode: FULL
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health,info,metrics,loggers
+  endpoint:
+    health:
+      show-details: always
+  trace:
+    http:
+      enabled: false
+
+logging:
+  level:
+    root: INFO
